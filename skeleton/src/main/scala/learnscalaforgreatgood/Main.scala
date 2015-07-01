@@ -9,4 +9,5 @@ object Main extends App {
   val resource = system.actorOf(Props(Resource()), "skeleton-resource")
 
   IO(Http) ! Http.Bind(resource, "localhost", 8080)
+  DomainSchema.dropcreate()
 }
